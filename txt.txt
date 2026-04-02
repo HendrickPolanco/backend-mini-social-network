@@ -1,0 +1,25 @@
+curl -X POST http://localhost:4021/router/register \
+-H "Content-Type: application/json" \
+-d '{
+    "name": "dansier",
+    "lastname": "Lizardo",
+  "email": "test12345@gmail.com",
+  "password": "123456"
+}'
+
+curl -X POST http://localhost:4013/router/register \
+-H "Content-Type: application/json" \
+-d '{"name":"junior","lastname":"polanco","email":"test1234@gmail.com","password":"654321"}'
+
+curl -X GET http://localhost:4014/router/login \
+-H "Content-Type: application/json" \
+-d '{"email":"test1234@gmail.com","password":"654321"}'
+
+
+curl -X POST http://localhost:4017/router/post \
+-H "Content-Type: application/json" \
+-d '{"title":"Mi primer post","description":"Este es mi contenido","authorID":1}'
+
+curl -X POST http://localhost:4019/router/comments \
+-H "Content-Type: application/json" \
+-d '{"content":"felicidades","postID":1,"authorID":1}'
