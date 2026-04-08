@@ -1,14 +1,20 @@
 const express = require("express")
 const router = require("./src/router/router")
-const cors = require("cors")
-// require("dotenv").config();
+const cors = require("cors");
+const helmet = require("helmet")
+const cookieParser = require("cookie-parser");
+require("dotenv").config();
+
 
 const app = express()
+app.use(helmet())
 app.use(cors({
     origin: "http://127.0.0.1:5500",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }))
+app.use(cookieParser())
+
 app.use(express.json())
 
 
@@ -19,6 +25,6 @@ app.get("/",(req, res)=>{
 })
 
 
-app.listen(4023, ()=> {
-    console.log("http://localhost:4023")
+app.listen(4025, ()=> {
+    console.log("http://localhost:4025")
 })
